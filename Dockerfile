@@ -8,5 +8,5 @@ FROM alpine:latest
 RUN apk add --no-cache unbound-libs
 COPY --from=builder /dane /dane
 WORKDIR /dane/cmd/letsdane
-EXPOSE 38080
+EXPOSE 8080
 ENTRYPOINT ["./letsdane"]
