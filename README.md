@@ -88,9 +88,9 @@ You can use [hsd](https://github.com/handshake-org/hsd) or [hnsd](https://github
 
 Optionally use `-skip-icann` to skip TLSA lookups for ICANN tlds and prevent the generated CA from issuing certificates for ICANN tlds (recommended hnsd is still experimental and also this will not break some legacy domains using poorly configured nameservers). 
 
-Assuming hnsd is listening on '127.0.0.1:5350'
+Assuming hnsd is listening on '127.0.0.1:5350' and you want the proxy to listen locally on port 8080 '127.0.0.1:8080'
 
-    $ letsdane -r 127.0.0.1:5350 -skip-dnssec -skip-icann
+    $ letsdane -r 127.0.0.1:5350 -skip-dnssec -skip-icann -addr 127.0.0.1:8080
 
 
 * Add Let's DANE proxy to your web browser `127.0.0.1:8080` ([Firefox example](https://user-images.githubusercontent.com/41967894/117558156-8f5b2a00-b02f-11eb-98ba-91ce8a9bdd4a.png))
@@ -104,6 +104,8 @@ If you use hsd, you can optionally use sig0 by specifying the public key `public
 
 
 Firefox creates a separate CA store for each profile, so it's recommended to use that if you want the CA to only be trusted by a specific profile.
+
+
 
 ### 2. Using DoH
 
